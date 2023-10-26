@@ -55,36 +55,44 @@ body {
     width: 70px;
 }
 .search-area {
-    border: 1px solid black;
+    border: 1px solid rgb(176, 176, 176);
     padding: 30px;
-
+    border-radius: 15px;
     display: flex;
     flex-direction: column;
+    margin-bottom: 20px;
 }
 .search-area .search-section {
     display: flex;
     gap: 2%;
 }
 .user-info-area {
-    border: 1px solid black;
+    border: 1px solid rgb(176, 176, 176);
     padding: 30px;
+    border-radius: 15px;
     display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
 }
 .latest-repos-area {
-    border: 1px solid black;
+    border: 1px solid rgb(176, 176, 176);
     padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 20px;
 }
 .contribute-area {
-    border: 1px solid black;
+    border: 1px solid rgb(176, 176, 176);
     padding: 30px;
+    border-radius: 15px;
     display: flex;
+    margin-bottom: 20px;
 }
 
 footer {
     display: flex;
     justify-content: space-around;
-    background-color: #333;
-    color: #fff;
+    background-color: #efefef;
+    color: #000;
     text-align: center;
     padding: 8px;
     /* position: fixed;
