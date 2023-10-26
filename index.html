@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="styles/spinner.css" />
+        <link rel="stylesheet" href="styles/layout.css" />
+    </head>
+    <body>
+        <div class="loading-screen">
+            <span class="loader"></span>
+
+            <p>Loading...</p>
+        </div>
+        <div class="main-container">
+            <div class="search-area">
+                <h1>Search Github Users</h1>
+                <h3>Enter a username to fetch a user profile and repos</h3>
+                <div class="search-section">
+                    <form class="user-form" id="form">
+                        <input
+                            type="text"
+                            id="search"
+                            autofocus
+                            placeholder="Search a Github User Here"
+                        />
+                    </form>
+                    <button id="search-btn">검색</button>
+                </div>
+            </div>
+
+            <main id="main">
+                <h2>User Info</h2>
+                <div class="user-info-area">
+                    <div class="left-section"></div>
+                    <div class="info-section">
+                        <div class="box-section"></div>
+                        <div class="list-section"></div>
+                    </div>
+                </div>
+                <h2>Contribution Graph</h2>
+                <div class="contribute-area"></div>
+                <h2>Latest Repos</h2>
+                <div class="latest-repos-area"></div>
+            </main>
+        </div>
+
+        <script type="module" src="js/script.js"></script>
+    </body>
+</html>

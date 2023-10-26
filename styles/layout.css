@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+}
+
+.main-container {
+    margin: 20px;
+}
+
+#search {
+    width: 30vw;
+    height: 30px;
+    padding: 5px;
+}
+#search-btn {
+    width: 70px;
+}
+.search-area {
+    border: 1px solid black;
+    padding: 30px;
+}
+.search-area .search-section {
+    display: flex;
+    gap: 2%;
+}
+.user-info-area {
+    border: 1px solid black;
+    padding: 30px;
+    display: flex;
+}
+.latest-repos-area {
+    border: 1px solid black;
+    padding: 30px;
+}
+.contribute-area {
+    border: 1px solid black;
+    padding: 30px;
+    display: flex;
+}
