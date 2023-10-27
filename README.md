@@ -13,3 +13,20 @@
 ### 비고
 
 -   다시 페이지로 돌아왔을 때 localStorage에 내용을 불러와서 이전 검색 내용을 유지한다
+-   토큰값이 빠져있기 때문에 그대로 클론하여 실행하면 에러가 발생합니다!!
+
+```javascript
+// js/script.js
+...
+
+constructor() {
+        this.API_URL = "https://api.github.com/users/"
+        this.accessToken = "token token MYTOKEN!!!!"
+        this.initElements()
+        this.initEventListeners()
+        this.loadFromLocalStorage()
+        this.searchOnLoad()
+}
+
+...
+```
