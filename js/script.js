@@ -1,11 +1,10 @@
 class GitHubFinder {
     constructor() {
         this.API_URL = "https://api.github.com/users/"
-        this.accessToken = "token MYTOKEN!!!!"
+        this.accessToken = "token token MYTOKEN!!!!"
         this.initElements()
         this.initEventListeners()
         this.loadFromLocalStorage()
-
         this.searchOnLoad()
     }
 
@@ -121,22 +120,33 @@ class GitHubFinder {
         }
     }
 
+    createElementAndAddClassNameOrNot(tagName, classNames) {
+        const element = document.createElement(tagName)
+        if (classNames && classNames.length > 0) {
+            element.classList.add(...classNames)
+        }
+        return element
+    }
+
     displayUserInfo(data) {
-        const imgDiv = document.createElement("div")
-        imgDiv.classList.add("user-image")
+        const imgDiv = this.createElementAndAddClassNameOrNot("div", [
+            "user-image",
+        ])
         const image = document.createElement("img")
         image.src = data.avatar_url
         image.alt = "Alternative text"
-        image.width = 230
-        image.height = 230
 
-        const viewPage = document.createElement("a")
-        viewPage.classList.add("user-image", "item", "view-page-ach")
+        const viewPage = this.createElementAndAddClassNameOrNot("a", [
+            "user-image",
+            "item",
+            "view-page-ach",
+        ])
         viewPage.innerText = "View Page"
         viewPage.href = data.html_url
 
-        const contributeGraph = document.createElement("div")
-        contributeGraph.classList.add("contribute-graph-image")
+        const contributeGraph = this.createElementAndAddClassNameOrNot("div", [
+            "contribute-graph-image",
+        ])
         const graphimage = document.createElement("img")
         graphimage.src = `https://ghchart.rshah.org/${data.login}`
         graphimage.alt = "Graph Alternative text"
@@ -148,14 +158,22 @@ class GitHubFinder {
         this.contributeArea.appendChild(contributeGraph)
 
         const info1 = document.createElement("ul")
-        const publicReposDiv = document.createElement("div")
-        publicReposDiv.classList.add("item", "ex1")
-        const publicGistsDiv = document.createElement("div")
-        publicGistsDiv.classList.add("item", "ex2")
-        const followersDiv = document.createElement("div")
-        followersDiv.classList.add("item", "ex3")
-        const followingDiv = document.createElement("div")
-        followingDiv.classList.add("item", "ex4")
+        const publicReposDiv = this.createElementAndAddClassNameOrNot("div", [
+            "item",
+            "ex1",
+        ])
+        const publicGistsDiv = this.createElementAndAddClassNameOrNot("div", [
+            "item",
+            "ex2",
+        ])
+        const followersDiv = this.createElementAndAddClassNameOrNot("div", [
+            "item",
+            "ex3",
+        ])
+        const followingDiv = this.createElementAndAddClassNameOrNot("div", [
+            "item",
+            "ex4",
+        ])
 
         const publicRepos = document.createElement("li")
         const publicGists = document.createElement("li")
@@ -181,16 +199,15 @@ class GitHubFinder {
         this.boxSection.classList.add("item-container")
         this.boxSection.appendChild(info1)
 
-        const info2 = document.createElement("ul")
+        const info2 = this.createElementAndAddClassNameOrNot("ul", [
+            "table-list-info",
+        ])
 
         const company = document.createElement("li")
-        company.style.borderBottom = "1px solid rgb(214, 212, 212)"
         const blog = document.createElement("li")
-        blog.style.borderBottom = "1px solid rgb(214, 212, 212)"
         const location = document.createElement("li")
-        location.style.borderBottom = "1px solid rgb(214, 212, 212)"
         const createdAt = document.createElement("li")
-        createdAt.style.borderBottom = "1px solid rgb(214, 212, 212)"
+
         company.innerText = `Company: ${
             data.company ? data.company : "No Company"
         }`
@@ -208,10 +225,6 @@ class GitHubFinder {
         createdAt.innerText = `Since: ${sinceDate}`
         info2.appendChild(createdAt)
         this.listSection.appendChild(info2)
-
-        this.listSection.style.borderTop = "1px solid rgb(214, 212, 212)"
-        this.listSection.style.borderLeft = "1px solid rgb(214, 212, 212)"
-        this.listSection.style.borderRight = "1px solid rgb(214, 212, 212)"
     }
 
     displayRepos(data) {
@@ -219,8 +232,7 @@ class GitHubFinder {
         data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
         const recentRepos = data.slice(0, 5)
 
-        const ul = document.createElement("ul")
-        ul.classList.add("repo-list")
+        const ul = this.createElementAndAddClassNameOrNot("ul", ["repo-list"])
 
         recentRepos.forEach((item) => {
             const li = document.createElement("li")
@@ -229,18 +241,24 @@ class GitHubFinder {
             repoLink.href = item.html_url
             repoLink.target = "_blank"
 
-            const repoInfoContainer = document.createElement("div")
-            repoInfoContainer.classList.add("repo-info")
+            const repoInfoContainer = this.createElementAndAddClassNameOrNot(
+                "div",
+                ["repo-info"]
+            )
 
-            const visibilityIcon = document.createElement("div")
-            visibilityIcon.classList.add("material-icons", "vis")
+            const visibilityIcon = this.createElementAndAddClassNameOrNot(
+                "div",
+                ["material-icons", "vis"]
+            )
             visibilityIcon.innerText = `visibility`
 
             const watchersCount = document.createElement("span")
             watchersCount.innerText = `  ${item.watchers_count}  `
 
-            const gradeIcon = document.createElement("div")
-            gradeIcon.classList.add("material-icons", "star")
+            const gradeIcon = this.createElementAndAddClassNameOrNot("div", [
+                "material-icons",
+                "star",
+            ])
             gradeIcon.innerText = `grade`
 
             const stargazersCount = document.createElement("span")
@@ -268,8 +286,9 @@ class GitHubFinder {
             const forkCount = document.createElement("span")
             forkCount.innerText = `  ${item.forks_count}`
 
-            const repoName = document.createElement("div")
-            repoName.style.fontWeight = 900
+            const repoName = this.createElementAndAddClassNameOrNot("div", [
+                "repo-name",
+            ])
             repoName.innerText = item.name
 
             repoInfoContainer.appendChild(visibilityIcon)

@@ -46,6 +46,9 @@ ul {
 .list-section {
     margin-top: 10px;
     border-radius: 10px;
+    border-top: 1px solid rgb(214, 212, 212);
+    border-left: 1px solid rgb(214, 212, 212);
+    border-right: 1px solid rgb(214, 212, 212);
 }
 
 .list-section li {
@@ -80,6 +83,11 @@ ul {
     width: 180px;
     height: 180px;
 }
+
+.repo-name {
+    font-weight: 900;
+}
+
 .repo-list li a {
     text-decoration: none;
     color: white;
@@ -97,4 +105,13 @@ ul {
 
 .repo-list li:hover {
     background-color: rgb(106, 144, 48);
+}
+
+.user-image img {
+    width: 230px;
+    height: 230px;
+}
+
+.table-list-info li {
+    border-bottom: 1px solid rgb(214, 212, 212);
 }
