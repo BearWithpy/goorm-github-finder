@@ -4,6 +4,9 @@ class GitHubFinder {
         this.accessToken = "token MYTOKEN!!!!"
         this.initElements()
         this.initEventListeners()
+        this.loadFromLocalStorage()
+
+        this.searchOnLoad()
     }
 
     initElements() {
@@ -30,7 +33,29 @@ class GitHubFinder {
         this.searchBox.addEventListener("focusout", this.formSubmit.bind(this))
     }
 
+    saveToLocalStorage(username, data) {
+        localStorage.setItem("user-name", username)
+        localStorage.setItem("user-data", JSON.stringify(data))
+    }
+
+    loadFromLocalStorage() {
+        const username = localStorage.getItem("user-name")
+        const userData = localStorage.getItem("user-data")
+
+        if (username && userData) {
+            this.searchBox.value = username
+            this.displayUserInfo(JSON.parse(userData))
+        }
+    }
+
+    searchOnLoad() {
+        if (this.searchBox.value) {
+            this.getUser(this.searchBox.value)
+        }
+    }
+
     async getUser(username) {
+        this.clearSections()
         try {
             const response = await fetch(this.API_URL + username, {
                 headers: {
@@ -38,14 +63,14 @@ class GitHubFinder {
                 },
             })
 
-            this.clearSections()
-
             if (response.status === 404) {
                 this.createErrorCard("No profile with this Username")
                 return
             }
 
             const data = await response.json()
+
+            this.saveToLocalStorage(username, data)
             this.displayUserInfo(data)
             this.getRepos(username)
         } catch (error) {
