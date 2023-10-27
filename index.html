@@ -7,35 +7,31 @@
         <link rel="stylesheet" href="styles/spinner.css" />
         <link rel="stylesheet" href="styles/layout.css" />
         <link rel="stylesheet" href="styles/info.css" />
+        <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+        />
     </head>
     <body>
         <header id="header">
-            <div class="header_contents">GitHub Finder</div>
+            <div class="header_contents" onclick="window.location.href='/'">
+                GitHub Finder
+            </div>
         </header>
-        <!-- <div class="item-container">
-            <div class="item ex1" id="ex1">
-                example box!!!!!!!!!!!!!!!!!!!!!!!
-            </div>
-            <div class="item ex2" id="ex2">
-                example box!!!!!!!!!!!!!!!!!!!!!!!
-            </div>
-            <div class="item ex3" id="ex3">
-                example box!!!!!!!!!!!!!!!!!!!!!!!
-            </div>
-            <div class="item ex4" id="ex4">
-                example box!!!!!!!!!!!!!!!!!!!!!!!
-            </div>
-        </div> -->
 
         <div class="loading-screen">
             <span class="loader"></span>
 
             <p>Loading....</p>
         </div>
+
         <div class="main-container">
             <div class="search-area">
                 <h1>Search Github Users</h1>
-                <h3>Enter a username to fetch a user profile and repos</h3>
+                <br />
+                <h3 style="color: rgb(215, 215, 215); margin-bottom: 10px">
+                    Enter a USER NAME to fetch a user profile and repos
+                </h3>
                 <div class="search-section">
                     <form class="user-form" id="form">
                         <input
@@ -64,6 +60,7 @@
                 <div class="latest-repos-area"></div>
             </main>
         </div>
+
         <footer>
             <p>&copy; 2023 Junsu GitHub Finder</p>
             <p>https://github.com/BearWithpy/goorm-github-finder</p>

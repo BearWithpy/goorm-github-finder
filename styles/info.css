@@ -55,3 +55,46 @@ ul {
     width: 67vw;
     margin-left: 20px;
 }
+
+.fork {
+    width: 24px;
+    height: 24px;
+}
+
+.repo-list {
+    display: flex;
+    justify-content: space-around;
+}
+
+.repo-list li {
+    /* border: 1px solid black; */
+    text-decoration: none;
+    background-color: rgb(139, 189, 64);
+    color: white;
+
+    border-radius: 6px;
+    display: block;
+    padding: 5px 10px 5px 10px;
+    font-size: 20px;
+
+    width: 180px;
+    height: 180px;
+}
+.repo-list li a {
+    text-decoration: none;
+    color: white;
+    /*background-color: rgb(139, 189, 64);
+    
+
+    border-radius: 6px;
+    display: block;
+    padding: 5px 10px 5px 10px;
+    font-size: 20px;
+
+    width: 180px;
+    height: 180px; */
+}
+
+.repo-list li:hover {
+    background-color: rgb(106, 144, 48);
+}
